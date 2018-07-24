@@ -7,6 +7,7 @@ import onmt.decoders
 import onmt.models
 import onmt.utils
 import onmt.modules
+import torch
 from onmt.trainer import Trainer
 import sys
 import onmt.utils.optimizers

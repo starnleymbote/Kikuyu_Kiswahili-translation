@@ -170,9 +170,9 @@ def preprocess_opts(parser):
                        one word per line.""")
     group.add_argument('-features_vocabs_prefix', type=str, default='',
                        help="Path prefix to existing features vocabularies")
-    group.add_argument('-src_vocab_size', type=int, default=50000,
+    group.add_argument('-src_vocab_size', type=int, default=500,
                        help="Size of the source vocabulary")
-    group.add_argument('-tgt_vocab_size', type=int, default=50000,
+    group.add_argument('-tgt_vocab_size', type=int, default=500,
                        help="Size of the target vocabulary")
 
     group.add_argument('-src_words_min_frequency', type=int, default=0)
@@ -203,7 +203,7 @@ def preprocess_opts(parser):
                        help="Random seed")
 
     group = parser.add_argument_group('Logging')
-    group.add_argument('-report_every', type=int, default=100000,
+    group.add_argument('-report_every', type=int, default=100,
                        help="Report status every this many sentences")
     group.add_argument('-log_file', type=str, default="",
                        help="Output logs to a file under this path.")
