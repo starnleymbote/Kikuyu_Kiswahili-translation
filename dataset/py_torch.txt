@@ -1,0 +1,40 @@
+**************************************************************
+			PRE-PROCESS THE CORPUS FIRST
+**************************************************************
+command ::
+
+python preprocess.py -train_src data/src-train.txt -train_tgt data/tgt-train.txt -valid_src data/src-val.txt -valid_tgt data/tgt-val.txt -save_data data/demo 
+
+
+**************************************************************
+			TRAINING THE DATASET
+**************************************************************
+command ::
+
+python train.py -data data/demo -save_model demo-model
+
+
+**************************************************************
+			TRANSLATION
+**************************************************************
+
+command ::
+
+ python translate.py -model data/kikuyu_kiswahili_mode_lnm_step_50.pt -src data/kiuk.txt -output pred.txt -replace_unk -verbose
+
+
+ subword
+
+ cat {train_file}.L1 {train_file}.L2 | subword-nmt learn-bpe -s {num_operations} -o {codes_file}
+subword-nmt apply-bpe -c {codes_file} < {train_file}.L1 | subword-nmt get-vocab > {vocab_file}.L1
+subword-nmt apply-bpe -c {codes_file} < {train_file}.L2 | subword-nmt get-vocab > {vocab_file}.L2
+
+//cat multilingual/kikuyu-train-data.txt multilingual/kiswahili-train-data.txt | subword-nmt learn-bpe -s {100} -o {multi_lingual.vocab.pt}
+subword-nmt apply-bpe -c {multi_lingual.vocab.pt} < multilingual/kikuyu-train-data.txt | subword-nmt get-vocab > multi_lingual.vocab.pt
+subword-nmt apply-bpe -c multi_lingual.vocab.pt < multilingual/kiswahili-train-data.txt | subword-nmt get-vocab > multi_lingual.vocab.pt
+
+***************************************************************
+		TOKENIZATION
+**************************************************************
+
+bword-nmt learn-joint-bpe-and-vocab --input multilingual/kikuyu-train-data.txt multilingual/kiswahili-train-data.txt -s 1000 -o new.tx --write-vocabulary voc.txt voc1.txt

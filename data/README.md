@@ -17,7 +17,7 @@ TESTING FOR ACCURACY LEVEL ;; https://github.com/OpenNMT/OpenNMT/issues/290
 
 checkout ;; opts.py ::change the number of default steps for every logging
 
-testing the demo model ;;python translate.py -model data/kikuyu_kiswahili_model_step_31520.pt -src data/kiuk.txt -output pred2.txt -replace_unk -verbose
+testing the demo model ;;python translate.py -model dirty/averaged-10-epoch.pt -src dirty/me.txt -output pred2.txt -replace_unk -verbose
 
 
  python translate.py -model data/kikuyu_kiswahili_model_nm_step_100000.pt -src data/kiuk.txt -output data/pred.txt -replace_unk -verbose

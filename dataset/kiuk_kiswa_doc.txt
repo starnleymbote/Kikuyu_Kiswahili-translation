@@ -1,0 +1,31 @@
+*****************************************************************************************************
+*************************Kikuyu-train-data.txt*******************************************************
+*                                                                                                   *
+*  This file contains the data set (corpus) for kikuyu.                                             *
+*  The data set is made up of Kikuyu sentences separated by space so that it may be tokenizable.    *
+*  This dataset consists a list of about 14,000 kikuyu sentences.                                   *
+*                                                                                                   *
+*****************************************************************************************************
+
+
+
+******************************************************************************************************
+*************************Kiswahili-train-data.txt*****************************************************
+*                                                                                                    *
+*   This file contains the data set (corpus) for kiswahili.                                          *
+*   The data set is made up of Kiswahili sentences separated by space so that it may be tokenizable. *
+*   This dataset consists a list of about 14,000 kiswahili sentences.                                *
+*                                                                                                    *
+******************************************************************************************************
+
+Used the OLd testtament to write some of the training dataset.
+Done with Genesis Chapter One.
+Prepared both data for kiswahili and kikuyu.
+
+preprocessing the data :: python preprocess.py -train_src data/src-train.txt -train_tgt data/tgt-train.txt -valid_src data/src-val.txt -valid_tgt data/tgt-val.txt -save_data data/demo
+
+
+training the model :: python train.py -data data/demo -save_model demo-model
+
+
+translating the model :: python translate.py -model data/kikuyu_kiswahili_mode_lnm_step_50.pt -src data/kiuk.txt -output pred.txt -replace_unk -verbose

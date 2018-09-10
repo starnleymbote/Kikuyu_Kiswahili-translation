@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OpenNMT-py: Open-Source Neural Machine Translation
 
 [![Build Status](https://travis-ci.org/OpenNMT/OpenNMT-py.svg?branch=master)](https://travis-ci.org/OpenNMT/OpenNMT-py)
@@ -138,3 +139,7 @@ http://opennmt.net/Models-py/
   doi       = {10.18653/v1/P17-4012}
 }
 ```
+=======
+# Kikuyu_Kiswahili-translation
+This repository contains my models that has been trained to translate from kikuyu to kiswahili. It also contains the dataset used for the training purposes and the opnnmt tool used fro ddep learning
+>>>>>>> eabe44f2e309ddd4f0476172f39ec55df32f9f74
